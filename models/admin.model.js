@@ -1,10 +1,13 @@
 import mongoose from "mongoose";
 
-const adminSchema = mongoose.Schema({
-    username:{type:String},
-    password:{type:String}
-},{timestamps:true})
+const adminSchema = mongoose.Schema(
+  {
+    username: { type: String, unique: true },
+    password: { type: String, unique: true },
+  },
+  { timestamps: true }
+);
 
-const Admin = mongoose.model("Admin",adminSchema);
+const Admin = mongoose.model("Admin", adminSchema);
 
 export default Admin;
